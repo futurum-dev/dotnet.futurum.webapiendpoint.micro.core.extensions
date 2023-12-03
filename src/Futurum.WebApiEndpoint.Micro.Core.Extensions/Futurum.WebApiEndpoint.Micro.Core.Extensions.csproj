@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <OutputType>Library</OutputType>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>Futurum.WebApiEndpoint.Micro.Core.Extensions</PackageId>
+        <PackageIcon>dotnet-logo.png</PackageIcon>
+        <Description>A dotnet library that extends Futurum.WebApiEndpoint.Micro, to make it fully compatible with Futurum.Core.</Description>
+        <PackageProjectUrl>https://github.com/futurum-dev/dotnet.futurum.webapiendpoint.micro.core.extensions</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/futurum-dev/dotnet.futurum.webapiendpoint.micro.core.extensions</RepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\assets\dotnet-logo.png" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <DocumentationFile>bin\Debug\net7.0\Futurum.WebApiEndpoint.Micro.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DocumentationFile>bin\Release\net7.0\Futurum.WebApiEndpoint.Micro.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FluentValidation" Version="11.5.1"/>
+        <PackageReference Include="Futurum.Core" Version="1.0.16"/>
+        <PackageReference Include="Futurum.Microsoft.Extensions.DependencyInjection" Version="1.0.11" />
+        <PackageReference Include="Futurum.WebApiEndpoint.Micro" Version="1.0.6-alpha.0.1" />
+    </ItemGroup>
+
+</Project>
