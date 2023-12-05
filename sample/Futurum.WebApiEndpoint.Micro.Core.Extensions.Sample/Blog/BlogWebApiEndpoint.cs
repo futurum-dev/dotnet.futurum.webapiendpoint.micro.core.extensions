@@ -3,9 +3,9 @@ using Futurum.WebApiEndpoint.Micro.Core.Extensions.Validation;
 namespace Futurum.WebApiEndpoint.Micro.Core.Extensions.Sample.Blog;
 
 [WebApiEndpoint("blog")]
-public class BlogWebApiEndpoint : IWebApiEndpoint
+public partial class BlogWebApiEndpoint
 {
-    public void Register(IEndpointRouteBuilder builder)
+    protected override void Build(IEndpointRouteBuilder builder)
     {
         builder.MapGet("/", GetHandler);
 

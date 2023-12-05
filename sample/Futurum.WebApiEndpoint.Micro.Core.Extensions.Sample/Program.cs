@@ -11,7 +11,7 @@ builder.Services.AddProblemDetails();
 builder.Services.AddModule(new ApplicationModule(builder.Configuration));
 
 builder.Services
-       .AddWebApiEndpoints(new WebApiEndpointConfiguration(WebApiEndpointVersions.V1_0)
+       .AddWebApiEndpoints(new WebApiEndpointConfiguration(new WebApiEndpointVersion(1, 0))
        {
            DefaultOpenApiInfo = new OpenApiInfo
            {
@@ -20,7 +20,7 @@ builder.Services
            OpenApiDocumentVersions =
            {
                {
-                   WebApiEndpointVersions.V3_0,
+                   new WebApiEndpointVersion(3, 0),
                    new OpenApiInfo
                    {
                        Title = "Futurum.WebApiEndpoint.Micro.Core.Extensions.Sample v3"
