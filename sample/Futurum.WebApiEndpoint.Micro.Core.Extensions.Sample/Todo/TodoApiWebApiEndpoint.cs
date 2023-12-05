@@ -5,9 +5,9 @@ using Microsoft.Data.Sqlite;
 namespace Futurum.WebApiEndpoint.Micro.Core.Extensions.Sample.Todo;
 
 [WebApiEndpoint("api/todos", "todos")]
-public class TodoApiWebApiEndpoint : IWebApiEndpoint
+public partial class TodoApiWebApiEndpoint
 {
-    public void Register(IEndpointRouteBuilder builder)
+    protected override void Build(IEndpointRouteBuilder builder)
     {
         builder.MapGet("/", GetAllHandler)
                .WithName("GetAllTodos");
@@ -45,7 +45,7 @@ public class TodoApiWebApiEndpoint : IWebApiEndpoint
 
     private static Results<Ok<IAsyncEnumerable<Todo>>, BadRequest<ProblemDetails>> GetAllHandler(HttpContext context, SqliteConnection db)
     {
-        return Run(Execute, context, ToOk, "Failed to get todos");
+        return RunToOk(Execute, context, "Failed to get todos");
 
         IAsyncEnumerable<Todo> Execute() =>
             db.QueryAsync<Todo>("SELECT * FROM Todos");
@@ -53,7 +53,7 @@ public class TodoApiWebApiEndpoint : IWebApiEndpoint
 
     private static Results<Ok<IAsyncEnumerable<Todo>>, BadRequest<ProblemDetails>> GetCompleteHandler(HttpContext context, SqliteConnection db)
     {
-        return Run(Execute, context, ToOk, "Failed to get complete todos");
+        return RunToOk(Execute, context, "Failed to get complete todos");
 
         IAsyncEnumerable<Todo> Execute() =>
             db.QueryAsync<Todo>("SELECT * FROM Todos WHERE IsComplete = true");
@@ -61,7 +61,7 @@ public class TodoApiWebApiEndpoint : IWebApiEndpoint
 
     private static Results<Ok<IAsyncEnumerable<Todo>>, BadRequest<ProblemDetails>> GetIncompleteHandler(HttpContext context, SqliteConnection db)
     {
-        return Run(Execute, context, ToOk, "Failed to get incomplete todos");
+        return RunToOk(Execute, context, "Failed to get incomplete todos");
 
         IAsyncEnumerable<Todo> Execute() =>
             db.QueryAsync<Todo>("SELECT * FROM Todos WHERE IsComplete = false");
@@ -153,7 +153,7 @@ public class TodoApiWebApiEndpoint : IWebApiEndpoint
 
     private static Task<Results<Ok<int>, BadRequest<ProblemDetails>>> DeleteAllHandler(HttpContext context, SqliteConnection db)
     {
-        return RunAsync(Execute, context, ToOk, "Failed to delete all todos");
+        return RunToOkAsync(Execute, context, "Failed to delete all todos");
 
         Task<int> Execute() =>
             db.ExecuteAsync("DELETE FROM Todos");

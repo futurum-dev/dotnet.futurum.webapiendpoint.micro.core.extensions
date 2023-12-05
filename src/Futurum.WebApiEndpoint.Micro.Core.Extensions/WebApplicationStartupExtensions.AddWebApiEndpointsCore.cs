@@ -1,7 +1,5 @@
 using Futurum.Microsoft.Extensions.DependencyInjection;
 
-using Microsoft.Extensions.DependencyInjection;
-
 namespace Futurum.WebApiEndpoint.Micro.Core.Extensions;
 
 public static partial class WebApplicationStartupExtensions

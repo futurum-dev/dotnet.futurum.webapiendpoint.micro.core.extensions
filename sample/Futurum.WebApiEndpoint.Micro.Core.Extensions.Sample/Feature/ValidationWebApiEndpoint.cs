@@ -7,9 +7,9 @@ using Futurum.WebApiEndpoint.Micro.Core.Extensions.Validation;
 namespace Futurum.WebApiEndpoint.Micro.Core.Extensions.Sample.Feature;
 
 [WebApiEndpoint("validation")]
-public class ValidationWebApiEndpoint : IWebApiEndpoint
+public partial class ValidationWebApiEndpoint
 {
-    public void Register(IEndpointRouteBuilder builder)
+    protected override void Build(IEndpointRouteBuilder builder)
     {
         builder.MapPost("/fluent-validation", FluentValidationHandler);
 
