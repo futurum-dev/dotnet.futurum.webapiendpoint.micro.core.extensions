@@ -155,4 +155,4 @@ There are examples showing the following:
 - [x] [Result](https://docs.futurum.dev/dotnet.futurum.core/result/overview.html) error handling
 - [x] Validation - DataAnnotations and FluentValidation and both combined
 
-![Futurum.WebApiEndpoint.Micro.Sample-openapi.png](https://github.com/futurum-dev/dotnet.futurum.webapiendpoint.micro/raw/main/docs/Futurum.WebApiEndpoint.Micro.Sample-openapi.png)
+![Comprehensive samples](https://raw.githubusercontent.com/futurum-dev/dotnet.futurum.webapiendpoint.micro.core.extensions/main/docs/Futurum.WebApiEndpoint.Micro.Sample-openapi.png)
