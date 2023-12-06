@@ -28,8 +28,8 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal
 
-      - name: Pack Futurum.Core
-        run: dotnet pack ./src/Futurum.WebApiEndpoint.Micro/Futurum.WebApiEndpoint.Micro.Core.Extensions.csproj --output nuget-packages --configuration Release
+      - name: Pack Futurum.WebApiEndpoint.Micro.Core.Extensions
+        run: dotnet pack ./src/Futurum.WebApiEndpoint.Micro.Core.Extensions/Futurum.WebApiEndpoint.Micro.Core.Extensions.csproj --output nuget-packages --configuration Release
       - name: NuGet publish
         run: find nuget-packages -name 'Futurum.WebApiEndpoint.Micro.Core.Extensions*.nupkg' | xargs -i dotnet nuget push {} --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
 
